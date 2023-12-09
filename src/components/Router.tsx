@@ -19,7 +19,7 @@ export const Router: FC<Props> = ({}) => {
         <Route path="/posts" element={<PostList />}></Route>
         <Route path="/posts/:id" element={<PostDetail />}></Route>
         <Route path="/posts/new" element={<PostNew />}></Route>
-        <Route path="/posts/edit" element={<PostEdit />}></Route>
+        <Route path="/posts/edit/:id" element={<PostEdit />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/signin" element={<SignIn />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>

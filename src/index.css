@@ -13,6 +13,7 @@ code {
 }
 
 /* header */
+
 header {
   display: flex;
   justify-content: space-between;
@@ -22,16 +23,19 @@ header {
   min-height: 40px;
   align-items: center;
 }
+
 header .header__logo {
   color: black;
   font-weight: 600;
   font-size: 18px;
 }
+
 header a {
-  margin: 1px 10px;
+  margin: 0px 10px;
   text-decoration: none;
   color: gray;
 }
+
 header a:focus,
 header a:hover {
   color: black;
@@ -49,10 +53,12 @@ footer {
   justify-content: center;
   gap: 20px;
 }
+
 footer a {
   text-decoration: none;
   color: gray;
 }
+
 footer a:focus,
 footer a:hover {
   color: black;
@@ -69,6 +75,7 @@ footer a:hover {
   cursor: pointer;
   padding: 48px 20px 0px 20px;
 }
+
 .post__navigation-active {
   color: black;
   font-weight: 600;
@@ -85,40 +92,48 @@ footer a:hover {
   text-align: left;
   line-height: 24px;
 }
+
 .post__box {
   padding-top: 24px;
   padding-bottom: 24px;
   border-top: 1px solid #f2f2f2;
 }
+
 .post__profile-box {
   display: flex;
   gap: 8px;
   font-size: 14px;
   align-items: center;
 }
+
 .post__profile {
   width: 36px;
   height: 36px;
   background: #f2f2f2;
   border-radius: 50%;
 }
+
 .post__date,
 .post__author-name {
   color: gray;
 }
+
 .post__title {
   font-size: 20px;
   font-weight: 600;
   margin: 14px 0px;
 }
+
 .post__text {
   color: dimgray;
   font-size: 16px;
 }
+
 .post__list a {
   text-decoration: none;
   color: black;
 }
+
 .post__utils-box {
   display: flex;
   gap: 8px;
@@ -126,19 +141,23 @@ footer a:hover {
   font-size: 14px;
   color: gray;
 }
+
 .post__delete {
   cursor: pointer;
 }
+
 .post__delete:hover,
 .post__delete:focus {
   color: black;
 }
+
 .post__edit:hover,
 .post__edit:focus,
 .post__edit a:hover,
 .post__edit a:focus {
   color: black;
 }
+
 .post__edit a {
   text-decoration: none;
   color: gray;
@@ -150,15 +169,18 @@ footer a:hover {
   font-size: 36px;
   line-height: 40px;
 }
+
 .post__detail .post__utils-box {
   padding: 10px 0px;
   border-top: 1px solid #f2f2f2;
   border-bottom: 1px solid #f2f2f2;
   flex-direction: row;
 }
+
 .post__detail .post__profile-box {
   padding: 10px 0px;
 }
+
 .post__detail .post__text {
   padding: 20px 0px;
 }
@@ -177,28 +199,36 @@ footer a:hover {
   justify-content: space-between;
   padding: 20px;
 }
+
 .flex__box-lg {
   display: flex;
   gap: 18px;
   align-items: center;
 }
+
 .profile__image {
   width: 72px;
   height: 72px;
   background-color: #f2f2f2;
   border-radius: 50%;
 }
+
 .profile__name {
   font-size: 16px;
   padding-top: 4px;
 }
+
 .profile__email {
   font-weight: 500;
 }
+
 .profile__logout {
   color: gray;
   font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
 }
+
 .profile__logout:hover,
 .profile__logout:focus {
   color: black;
@@ -211,6 +241,7 @@ footer a:hover {
   max-width: 980px;
   margin-top: 36px;
 }
+
 ul.carousel__slides {
   display: block;
   position: relative;
@@ -220,6 +251,7 @@ ul.carousel__slides {
   overflow: hidden;
   list-style: none;
 }
+
 .carousel__slides * {
   user-select: none;
   -ms-user-select: none;
@@ -228,12 +260,15 @@ ul.carousel__slides {
   -webkit-user-select: none;
   -webkit-touch-callout: none;
 }
+
 ul.carousel__slides input {
   display: none;
 }
+
 .carousel__slide-container {
   display: block;
 }
+
 .carousel__slide-img {
   display: block;
   position: absolute;
@@ -243,11 +278,13 @@ ul.carousel__slides input {
   opacity: 0;
   transition: all 0.7s ease-in-out;
 }
+
 .carousel__slide-img img {
   width: auto;
   min-width: 100%;
   height: 100%;
 }
+
 .carousel__controls {
   position: absolute;
   top: 0;
@@ -258,6 +295,7 @@ ul.carousel__slides input {
   line-height: 400px;
   color: #fff;
 }
+
 .carousel__controls label {
   display: none;
   position: absolute;
@@ -266,22 +304,27 @@ ul.carousel__slides input {
   transition: opacity 0.2s;
   cursor: pointer;
 }
+
 .carousel__slide-img:hover + .carousel__controls label {
   opacity: 0.5;
 }
+
 .carousel__controls label:hover {
   opacity: 1;
 }
+
 .carousel__controls .carousel__slide-prev {
   width: 49%;
   text-align: left;
   left: 0;
 }
+
 .carousel__controls .carousel__slide-next {
   width: 49%;
   text-align: right;
   right: 0;
 }
+
 .carousel__dots {
   position: absolute;
   left: 0;
@@ -290,6 +333,7 @@ ul.carousel__slides input {
   z-index: 999;
   text-align: center;
 }
+
 .carousel__dots .carousel__dot {
   display: inline-block;
   width: 10px;
@@ -299,19 +343,23 @@ ul.carousel__slides input {
   opacity: 0.5;
   margin: 10px;
 }
+
 input:checked + .carousel__slide-container .carousel__slide-img {
   opacity: 1;
   transform: scale(1);
   transition: opacity 1s ease-in-out;
 }
+
 input:checked + .carousel__slide-container .carousel__controls label {
   display: block;
 }
+
 input#img-1:checked ~ .carousel__dots label#img-dot-1,
 input#img-2:checked ~ .carousel__dots label#img-dot-2,
 input#img-3:checked ~ .carousel__dots label#img-dot-3 {
   opacity: 1;
 }
+
 input:checked + .carousel__slide-container .nav label {
   display: block;
 }
@@ -323,6 +371,7 @@ input:checked + .carousel__slide-container .nav label {
   padding: 20px;
   margin-top: 20px;
 }
+
 .form input {
   height: 20px;
   padding: 10px 10px;
@@ -332,6 +381,7 @@ input:checked + .carousel__slide-container .nav label {
   width: 96%;
   max-width: 680px;
 }
+
 .form textarea {
   min-height: 400px;
   padding: 10px 10px;
@@ -342,17 +392,20 @@ input:checked + .carousel__slide-container .nav label {
   width: 96%;
   max-width: 680px;
 }
+
 .form .form__block {
   margin-top: 20px;
   width: 100%;
 }
+
 .form label {
   display: block;
   font-weight: 500;
   margin-bottom: 10px;
   margin-top: 20px;
 }
-.form .form__btn--submit {
+
+.form .form__btn-submit {
   width: 100%;
   height: 48px;
   font-weight: 600;
@@ -364,7 +417,52 @@ input:checked + .carousel__slide-container .nav label {
   background-color: #2563eb;
   color: white;
 }
-.form .form__btn--submit:hover,
-.form .form__btn--submit:focus {
+
+.form .form__btn-submit:hover,
+.form .form__btn-submit:focus {
   background-color: #1945a4;
+}
+
+/* login form */
+
+.form-lg {
+  min-height: 70vh;
+  margin-top: 10vh;
+}
+
+.form__title {
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.form__link {
+  margin-left: 10px;
+  text-decoration: none;
+  color: gray;
+}
+
+.form__link:hover,
+.form__link:focus {
+  color: black;
+}
+
+.form__error {
+  color: red;
+}
+
+/* loader */
+
+.loader {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 5px solid #2563eb;
+  border-radius: 50%;
+  z-index: 9999;
+  animation: rotation 1s linear infinite;
 }

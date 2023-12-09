@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
 import { Header } from "./Header";
 
 interface Props {}
@@ -17,7 +18,9 @@ export const PostDetailComponent: FC<Props> = () => {
           </div>
           <div className="post__utils-box">
             <div className="post__delete">delete</div>
-            <div className="post__edit">edit</div>
+            <div className="post__edit">
+              <Link to={`/posts/edit/1`}>edit</Link>
+            </div>
           </div>
           <div className="post__text">작성 내용</div>
         </div>

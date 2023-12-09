@@ -1,17 +1,33 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Link } from "react-router-dom";
 
 interface Props {
   hasNavigation?: boolean;
 }
 
+type tabType = "all" | "my";
+
 export const PostListComponent: FC<Props> = ({ hasNavigation = true }) => {
+  const [activeTab, setActiveTab] = useState<tabType>("all");
+
   return (
     <>
       {hasNavigation && (
         <div className="post__navigation">
-          <div className="post__navigation-active">All</div>
-          <div>My Article</div>
+          <div
+            role="presentation"
+            onClick={() => setActiveTab("all")}
+            className={activeTab === "all" ? "post__navigation-active" : ""}
+          >
+            All
+          </div>
+          <div
+            role="presentation"
+            onClick={() => setActiveTab("my")}
+            className={activeTab === "my" ? "post__navigation-active" : ""}
+          >
+            My Article
+          </div>
         </div>
       )}
       <div className="post__list">
