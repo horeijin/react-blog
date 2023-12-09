@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { PostDetailComponent } from "../../components/PostDeatailComponent";
+import { PostDetailComponent } from "components/PostDeatailComponent";
 
 interface Props {}
 
