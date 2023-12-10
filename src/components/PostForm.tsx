@@ -1,6 +1,6 @@
 import { FC, useState, useContext, useEffect } from "react";
 import AuthContext from "context/AuthContext";
-import { PostProps } from "./PostListComponent";
+import { PostProps, CATEGORIES, CategoryType } from "./PostListComponent";
 
 import { db } from "firebaseApp";
 import { collection, doc, addDoc, getDoc, updateDoc } from "firebase/firestore";
@@ -17,6 +17,7 @@ export const PostForm: FC<Props> = ({}) => {
   const [title, setTitle] = useState<string>("");
   const [summary, setSummary] = useState<string>("");
   const [content, setContent] = useState<string>("");
+  const [category, setCategory] = useState<CategoryType>("Frontend");
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -36,7 +37,7 @@ export const PostForm: FC<Props> = ({}) => {
             minute: "2-digit",
             second: "2-digit",
           }),
-          //category: category,
+          category: category,
         });
 
         toast?.success("게시글을 수정했습니다.");
@@ -54,7 +55,7 @@ export const PostForm: FC<Props> = ({}) => {
           }),
           email: user?.email,
           uid: user?.uid,
-          //category: category,
+          category: category,
         });
 
         toast?.success("게시글을 생성했습니다.");
@@ -67,7 +68,9 @@ export const PostForm: FC<Props> = ({}) => {
   };
 
   const onChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     const {
       target: { name, value },
@@ -83,6 +86,10 @@ export const PostForm: FC<Props> = ({}) => {
 
     if (name === "content") {
       setContent(value);
+    }
+
+    if (name === "category") {
+      setCategory(value as CategoryType);
     }
   };
 
@@ -104,7 +111,7 @@ export const PostForm: FC<Props> = ({}) => {
       setTitle(post?.title);
       setSummary(post?.summary);
       setContent(post?.content);
-      //setCategory(post?.category as CategoryType);
+      setCategory(post?.category as CategoryType);
     }
   }, [post]);
 
@@ -120,6 +127,22 @@ export const PostForm: FC<Props> = ({}) => {
           onChange={onChange}
           value={title}
         />
+      </div>
+      <div className="form__block">
+        <label htmlFor="category">카테고리</label>
+        <select
+          name="category"
+          id="category"
+          onChange={onChange}
+          defaultValue={category}
+        >
+          <option value="">카테고리를 선택해주세요</option>
+          {CATEGORIES?.map((category) => (
+            <option value={category} key={category}>
+              {category}
+            </option>
+          ))}
+        </select>
       </div>
       <div className="form__block">
         <label htmlFor="summary">요약</label>

@@ -11,7 +11,7 @@ export const Profile: FC<Props> = () => {
     <>
       <Header />
       <ProfileComponent />
-      <PostListComponent hasNavigation={false} />
+      <PostListComponent hasNavigation={false} defaultTab="my" />
       <Footer />
     </>
   );
