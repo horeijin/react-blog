@@ -49,7 +49,7 @@ export const PostDetailComponent: FC<Props> = () => {
                 Delete
               </div>
               <div className="post__edit">
-                <Link to={`/posts/edit/1`}>Edit</Link>
+                <Link to={`/posts/edit/${post?.id}`}>Edit</Link>
               </div>
             </div>
             <div className="post__text post__text-pre-wrap">
