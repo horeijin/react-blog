@@ -2,8 +2,9 @@ import { FC, useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import AuthContext from "context/AuthContext";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, doc, getDocs, deleteDoc } from "firebase/firestore";
 import { db } from "firebaseApp";
+import { toast } from "react-toastify";
 
 interface Props {
   hasNavigation?: boolean;
@@ -30,10 +31,22 @@ export const PostListComponent: FC<Props> = ({ hasNavigation = true }) => {
   const getPosts = async () => {
     const data = await getDocs(collection(db, "posts"));
 
+    setPosts([]);
+
     data?.forEach((doc) => {
       const dataObj = { ...doc.data(), id: doc.id };
       setPosts((prev) => [...prev, dataObj as PostProps]);
     });
+  };
+
+  const handleDelete = async (id: string) => {
+    const confirm = window.confirm("해당 게시글을 삭제하시겠습니까?");
+    if (confirm && id) {
+      await deleteDoc(doc(db, "posts", id));
+
+      toast.success("게시글을 삭제했습니다.");
+      getPosts(); // 변경된 post 리스트를 다시 가져옴
+    }
   };
 
   useEffect(() => {
@@ -75,7 +88,13 @@ export const PostListComponent: FC<Props> = ({ hasNavigation = true }) => {
               </Link>
               {post?.email === user?.email && (
                 <div className="post__utils-box">
-                  <div className="post__delete">Delete</div>
+                  <div
+                    className="post__delete"
+                    role="presentation"
+                    onClick={() => handleDelete(post.id as string)}
+                  >
+                    Delete
+                  </div>
                   <Link to={`/posts/edit/${post?.id}`} className="post__edit">
                     Edit
                   </Link>
